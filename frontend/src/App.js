@@ -26,8 +26,8 @@ import { SettingsPage } from "./pages/SettingsPage";
 
 import "./App.css";
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || '';
-export const API = `${BACKEND_URL}/api`;
+// Use relative path for API in production (Vercel)
+export const API = "/api";
 
 // Auth Context
 const AuthContext = createContext(null);
