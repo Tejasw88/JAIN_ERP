@@ -2366,13 +2366,7 @@ async def get_upcoming_exams(token: dict = Depends(verify_token)):
 # Include the router
 app.include_router(api_router)
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_credentials=True,
-    allow_origins=os.environ.get('CORS_ORIGINS', '*').split(','),
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+
 
 logging.basicConfig(
     level=logging.INFO,

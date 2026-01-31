@@ -2,6 +2,7 @@
   "name": "jain-erp",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:8000",
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
     "@monaco-editor/react": "^4.7.0",
