@@ -233,45 +233,49 @@ async def health_check():
     return {"status": "healthy", "timestamp": datetime.now(timezone.utc).isoformat()}
 
 @api_router.post("/auth/login", response_model=LoginResponse)
-
 @limiter.limit("5/minute")
 async def login(request: Request, login_data: LoginRequest):
-    # Use request object for rate limiting
-    with get_db_connection() as conn:
-        with conn.cursor() as cursor:
-            cursor.execute("""
-                SELECT * FROM users WHERE username = %s OR email = %s
-            """, (login_data.identifier, login_data.identifier))
-            user = cursor.fetchone()
-            
-            if not user:
-                raise HTTPException(status_code=401, detail="Invalid credentials")
-            
-            stored_password = user.get('password', '')
-            if not bcrypt.checkpw(login_data.password.encode('utf-8'), stored_password.encode('utf-8')):
-                raise HTTPException(status_code=401, detail="Invalid credentials")
-            
-            user_email = user.get('email', '')
-            if user['role'] in ['Student', 'Teacher']:
-                if user_email and not user_email.endswith('@jainuniversity.ac.in'):
-                    raise HTTPException(status_code=403, detail="Students and Teachers must use @jainuniversity.ac.in domain")
-            
-            token = create_token(user)
-            
-            user_response = {
-                'id': user['id'],
-                'username': user['username'],
-                'email': user.get('email', ''),
-                'role': user['role'],
-                'full_name': user.get('name', ''),
-                'usn': user.get('idno'),
-                'department': user.get('department'),
-                'year': user.get('year'),
-                'linked_student_id': user.get('parent_id'),
-                'must_change_password': user.get('must_change_password', False)
-            }
-            
-            return {"token": token, "user": user_response}
+    try:
+        # Use request object for rate limiting
+        with get_db_connection() as conn:
+            with conn.cursor() as cursor:
+                cursor.execute("""
+                    SELECT * FROM users WHERE username = %s OR email = %s
+                """, (login_data.identifier, login_data.identifier))
+                user = cursor.fetchone()
+                
+                if not user:
+                    raise HTTPException(status_code=401, detail="Invalid credentials")
+                
+                stored_password = user.get('password', '')
+                if not bcrypt.checkpw(login_data.password.encode('utf-8'), stored_password.encode('utf-8')):
+                    raise HTTPException(status_code=401, detail="Invalid credentials")
+                
+                user_email = user.get('email', '')
+                if user['role'] in ['Student', 'Teacher']:
+                    if user_email and not user_email.endswith('@jainuniversity.ac.in'):
+                        raise HTTPException(status_code=403, detail="Students and Teachers must use @jainuniversity.ac.in domain")
+                
+                token = create_token(user)
+                
+                user_response = {
+                    'id': user['id'],
+                    'username': user['username'],
+                    'email': user.get('email', ''),
+                    'role': user['role'],
+                    'full_name': user.get('name', ''),
+                    'usn': user.get('idno'),
+                    'department': user.get('department'),
+                    'year': user.get('year'),
+                    'linked_student_id': user.get('parent_id'),
+                    'must_change_password': user.get('must_change_password', False)
+                }
+                
+                return {"token": token, "user": user_response}
+    except Exception as e:
+        detailed_error = f"{type(e).__name__}: {str(e)}"
+        logging.error(f"LOGIN EXCEPTION: {detailed_error}")
+        raise HTTPException(status_code=500, detail=detailed_error)
 
 
 @api_router.get("/auth/me")
