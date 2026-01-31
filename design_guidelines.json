@@ -1,0 +1,127 @@
+{
+  "brand_identity": {
+    "name": "JAIN University LMS",
+    "tone": "Institutional Excellence, Professional, Trustworthy, Modern Academic",
+    "primary_archetype": "Swiss & High-Contrast (Adapted for Education)",
+    "visual_mood": "Clean, Structured, Navy Blue anchors (Authority), Gold accents (Prestige)"
+  },
+  "typography": {
+    "font_family": {
+      "headings": "Manrope, sans-serif",
+      "body": "Inter, sans-serif",
+      "mono": "JetBrains Mono, monospace"
+    },
+    "scale": {
+      "h1": "text-4xl font-bold tracking-tight text-slate-900",
+      "h2": "text-3xl font-semibold tracking-tight text-slate-900",
+      "h3": "text-2xl font-semibold text-slate-800",
+      "body_large": "text-lg text-slate-700 leading-relaxed",
+      "body_default": "text-base text-slate-600 leading-relaxed",
+      "caption": "text-sm text-slate-500"
+    },
+    "imports": [
+      "@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');"
+    ]
+  },
+  "colors": {
+    "primary": {
+      "DEFAULT": "#1a365d",
+      "foreground": "#ffffff",
+      "50": "#f0f4f8",
+      "100": "#d9e2ec",
+      "200": "#bcccdc",
+      "300": "#9fb3c8",
+      "400": "#829ab1",
+      "500": "#627d98",
+      "600": "#486581",
+      "700": "#334e68",
+      "800": "#243b53",
+      "900": "#102a43"
+    },
+    "accent": {
+      "DEFAULT": "#f59e0b",
+      "foreground": "#ffffff",
+      "light": "#fcd34d",
+      "dark": "#d97706"
+    },
+    "background": {
+      "default": "#f8fafc",
+      "paper": "#ffffff",
+      "subtle": "#f1f5f9"
+    },
+    "status": {
+      "success": "#10b981",
+      "warning": "#f59e0b",
+      "error": "#ef4444",
+      "info": "#3b82f6"
+    }
+  },
+  "layout_strategies": {
+    "dashboard": {
+      "type": "Sidebar Navigation",
+      "structure": "Fixed Sidebar (Navy Blue) + Scrollable Content Area (Light Grey)",
+      "grid_mode": "Mode B: High Density Grid",
+      "spacing": "p-6 md:p-8",
+      "max_width": "max-w-7xl mx-auto"
+    },
+    "student_portal": {
+      "type": "Bento Grid",
+      "structure": "Top Navigation (Mobile) / Sidebar (Desktop) + Card-based Dashboard",
+      "grid_mode": "Mode A: The Tetris Grid",
+      "card_style": "White background, soft shadow, top-border accent in Gold"
+    },
+    "login_page": {
+      "type": "Split Screen",
+      "left_panel": "Image with Navy Blue Overlay (Multiply Mode)",
+      "right_panel": "Clean Form centered vertically"
+    }
+  },
+  "component_styles": {
+    "buttons": {
+      "primary": "bg-[#1a365d] text-white hover:bg-[#102a43] shadow-md hover:shadow-lg transition-all duration-200 rounded-md px-6 py-2.5 font-medium",
+      "secondary": "bg-white text-[#1a365d] border border-[#1a365d] hover:bg-slate-50 transition-all duration-200 rounded-md px-6 py-2.5 font-medium",
+      "ghost": "text-slate-600 hover:text-[#1a365d] hover:bg-slate-100 rounded-md px-4 py-2"
+    },
+    "cards": {
+      "default": "bg-white rounded-lg border border-slate-200 shadow-[0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.08)] transition-shadow duration-200",
+      "interactive": "cursor-pointer hover:-translate-y-1 transition-transform duration-200",
+      "metric": "p-6 flex flex-col justify-between h-full border-l-4 border-l-[#f59e0b]"
+    },
+    "inputs": {
+      "default": "flex h-10 w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-slate-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1a365d] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+    },
+    "watermark": {
+      "style": "fixed bottom-[-50px] right-[-50px] w-[300px] h-[300px] opacity-[0.03] pointer-events-none z-0 rotate-[-15deg]",
+      "content": "JGI Logo SVG"
+    }
+  },
+  "visual_enhancers": {
+    "shadows": "Use diffuse, ambient shadows: shadow-[0_8px_30px_rgb(0,0,0,0.04)]",
+    "borders": "Subtle 1px borders: border-slate-200",
+    "gradients": "Avoid full gradients. Use subtle mesh gradients in hero sections only.",
+    "textures": "Use a very subtle noise texture on the sidebar to give it a 'premium paper' feel."
+  },
+  "image_assets": {
+    "login_background": "https://images.unsplash.com/photo-1760062744828-64801c56a039?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTB8MHwxfHNlYXJjaHwyfHx1bml2ZXJzaXR5JTIwc3R1ZGVudHMlMjBzdHVkeWluZyUyMGxpYnJhcnklMjBtb2Rlcm58ZW58MHx8fHwxNzY5NzY0MzIzfDA&ixlib=rb-4.1.0&q=85",
+    "student_avatar_placeholder": "https://images.unsplash.com/photo-1597920940566-a77511f9327d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTB8MHwxfHNlYXJjaHwzfHx1bml2ZXJzaXR5JTIwc3R1ZGVudHMlMjBzdHVkeWluZyUyMGxpYnJhcnklMjBtb2Rlcm58ZW58MHx8fHwxNzY5NzY0MzIzfDA&ixlib=rb-4.1.0&q=85",
+    "logo_placeholder": "https://images.pexels.com/photos/30072957/pexels-photo-30072957.jpeg"
+  },
+  "instructions_to_main_agent": [
+    "1. SETUP: Install 'lucide-react' for icons. Use 'Manrope' font from Google Fonts.",
+    "2. THEME: Enforce Light Mode. Do not create a dark mode toggle unless explicitly asked. The brand is 'Academic Light'.",
+    "3. LAYOUT: Create a 'DashboardLayout' component that handles the Sidebar and Topbar. The Sidebar must be Navy Blue (#1a365d) with White text.",
+    "4. WATERMARK: Create a 'Watermark' component that renders the JGI logo (or text 'JGi') in the background of every page.",
+    "5. TABLES: For the Admin/Teacher dashboards, use Shadcn Table component but style it with 'tabular-nums' for data and zebra striping (even:bg-slate-50).",
+    "6. EXCEL UPLOAD: The Excel upload area must be a distinct 'Dropzone' component with a dashed border (border-dashed border-2 border-slate-300) and a clear icon.",
+    "7. ROLE ROUTING: Ensure the Sidebar links change based on the user role (Admin vs Teacher vs Student).",
+    "8. ACCESSIBILITY: Ensure all text on the Navy background is Pure White (#FFFFFF) or very light grey (#E2E8F0).",
+    "9. DATA-TESTID: Add data-testid attributes to all inputs, buttons, and major containers."
+  ],
+  "universal_guidelines": [
+    "Avoid generic centered layouts.",
+    "Use 2-3x more spacing than feels comfortable.",
+    "Every interaction needs micro-animations.",
+    "Use 'sonner' for toasts.",
+    "Components MUST use named exports."
+  ]
+}
