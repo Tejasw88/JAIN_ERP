@@ -1,15 +1,12 @@
 {
-    "buildCommand": "cd frontend && npm install && npm run build",
-    "outputDirectory": "frontend/build",
-    "framework": "create-react-app",
     "rewrites": [
         {
             "source": "/api/(.*)",
-            "destination": "frontend/api/index.py"
+            "destination": "/api/index.py"
         },
         {
             "source": "/(.*)",
-            "destination": "frontend/$1"
+            "destination": "/index.html"
         }
     ]
 }
