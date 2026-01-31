@@ -36,7 +36,7 @@ DB_CONFIG = {
     'user': os.environ.get('DB_USERNAME'),
     'password': os.environ.get('DB_PASSWORD'),
     'database': os.environ.get('DB_DATABASE'),
-    'ssl': {'ssl': True},
+    'ssl': {'ssl': {}},  # TiDB Cloud SSL
     'cursorclass': pymysql.cursors.DictCursor
 }
 
@@ -82,15 +82,10 @@ class SecurityHeadersMiddleware(BaseHTTPMiddleware):
 
 app.add_middleware(SecurityHeadersMiddleware)
 
-# CORS Configuration
-origins = [
-    "http://localhost:3000",
-    "https://jain-lms-frontend.netlify.app", # Example production URL
-]
-
+# CORS Configuration - Allow all origins for Vercel deployment
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],  # Allow all origins
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
